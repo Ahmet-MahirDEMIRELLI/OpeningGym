@@ -2,7 +2,7 @@
 using OpeningGym.Users.Application.Features.Services;
 using OpeningGym.Users.Domain.Abstractions;
 using OpeningGym.Users.Domain.PendingUsers;
-using OpeningGym.Users.Domain.PendingUsers.Events;
+using OpeningGym.Users.Domain.PendingUsers.Events.PendingUserCreatedDomainEvent;
 
 namespace OpeningGym.Users.Application.Features.PendingUsers.CreatePendingUser;
 internal class CreatePendingUserCommandHandler : IRequestHandler<CreatePendingUserCommand>

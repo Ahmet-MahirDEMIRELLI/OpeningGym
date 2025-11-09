@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using OpeningGym.Users.Domain.Abstractions;
 using OpeningGym.Users.Domain.PendingUsers;
-using OpeningGym.Users.Domain.PendingUsers.Events;
+using OpeningGym.Users.Domain.PendingUsers.Events.PendingUserVerifiedDomainEvent;
 
 namespace OpeningGym.Users.Application.Features.PendingUsers.VerifyPendingUser;
 internal class VerifyPendingUserCommandHandler : IRequestHandler<VerifyPendingUserCommand>

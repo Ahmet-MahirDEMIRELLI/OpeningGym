@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using OpeningGym.Users.Domain.Shared;
 
-namespace OpeningGym.Users.Domain.PendingUsers.Events;
+namespace OpeningGym.Users.Domain.PendingUsers.Events.PendingUserCreatedDomainEvent;
 public sealed class PendingUserCreatedDomainEvent : INotification
 {
     public UserName UserName { get; }

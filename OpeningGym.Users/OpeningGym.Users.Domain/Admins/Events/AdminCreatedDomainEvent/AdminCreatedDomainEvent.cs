@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using OpeningGym.Users.Domain.Shared;
 
-namespace OpeningGym.Users.Domain.Admins.Events;
+namespace OpeningGym.Users.Domain.Admins.Events.AdminCreatedDomainEvent;
 public sealed class AdminCreatedDomainEvent : INotification
 {
     public FullName FullName { get; }

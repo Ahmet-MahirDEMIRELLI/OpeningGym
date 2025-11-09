@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace OpeningGym.Users.Application.Features.Auth.Services;
+namespace OpeningGym.Users.Application.Features.Services;
 internal sealed class VerificationCodeService
 {
     public VerificationCodeService() { }

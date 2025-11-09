@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using OpeningGym.Users.Domain.Abstractions;
 using OpeningGym.Users.Domain.Admins;
-using OpeningGym.Users.Domain.Admins.Events;
+using OpeningGym.Users.Domain.Admins.Events.AdminCreatedDomainEvent;
 
 namespace OpeningGym.Users.Application.Features.Admins.CreateAdmin;
 internal class CreateAdminCommandHandler : IRequestHandler<CreateAdminCommand>

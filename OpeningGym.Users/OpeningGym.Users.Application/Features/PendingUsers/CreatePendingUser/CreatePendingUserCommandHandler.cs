@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using OpeningGym.Users.Application.Features.Auth.Services;
+using OpeningGym.Users.Application.Features.Services;
 using OpeningGym.Users.Domain.Abstractions;
 using OpeningGym.Users.Domain.PendingUsers;
 using OpeningGym.Users.Domain.PendingUsers.Events;

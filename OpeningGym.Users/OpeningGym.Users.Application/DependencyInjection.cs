@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using OpeningGym.Users.Application.Features.Auth.Services;
+using OpeningGym.Users.Application.Features.Services;
 using OpeningGym.Users.Domain.Abstractions;
+using OpeningGym.Users.Domain.Shared;
 using System.Reflection;
 
 namespace OpeningGym.Users.Application;
@@ -15,7 +16,8 @@ public static class DependencyInjection
                 typeof(Entity).Assembly);
         });
 
-        services.AddScoped<VerificationCodeService>();
+        services.AddTransient<VerificationCodeService>();
+        services.AddTransient<IEmailService, EmailService>();
 
         return services;
     }

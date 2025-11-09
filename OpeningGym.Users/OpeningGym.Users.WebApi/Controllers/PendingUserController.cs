@@ -15,14 +15,14 @@ public class PendingUserController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPost("Create")]
     public async Task<IActionResult> Create(CreatePendingUserCommand request, CancellationToken cancellationToken)
     {
         await _mediator.Send(request, cancellationToken);
         return Ok();
     }
 
-    [HttpPost]
+    [HttpPost("Verify")]
     public async Task<IActionResult> Verify(VerifyPendingUserCommand request, CancellationToken cancellationToken)
     {
         await _mediator.Send(request, cancellationToken);

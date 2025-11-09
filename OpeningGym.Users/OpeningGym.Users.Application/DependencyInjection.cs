@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using OpeningGym.Users.Application.Features.Auth.Services;
 using OpeningGym.Users.Domain.Abstractions;
 using System.Reflection;
 
@@ -13,6 +14,8 @@ public static class DependencyInjection
                 Assembly.GetExecutingAssembly(),
                 typeof(Entity).Assembly);
         });
+
+        services.AddScoped<VerificationCodeService>();
 
         return services;
     }

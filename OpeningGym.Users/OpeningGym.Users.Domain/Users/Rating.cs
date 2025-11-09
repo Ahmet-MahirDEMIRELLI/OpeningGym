@@ -14,7 +14,7 @@
         Bullet = bullet;
         BulletK = bulletK;
         Blitz = blitz;
-        Blitz = blitzK;
+        BlitzK = blitzK;
         Rapid = rapid;
         RapidK = rapidK;
         Classical = classical;

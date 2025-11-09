@@ -12,9 +12,19 @@ internal sealed class AdminRepository : IAdminRepository
         _context = context;
     }
 
+    public async Task<Admin?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await _context.Admins.Where(a => a.Id == id).FirstOrDefaultAsync(cancellationToken);
+    }
+
+    public async Task<Admin?> GetByEmailAsync(Email email, CancellationToken cancellationToken = default)
+    {
+        return await _context.Admins.Where(a => a.Email == email).FirstOrDefaultAsync(cancellationToken);
+    }
+
     public async Task<Admin> CreateAsync(string fullName, string email, string password, CancellationToken cancellationToken = default)
     {
-        var existingAdmin = await GetByEmailAsync(email, cancellationToken);
+        var existingAdmin = await GetByEmailAsync(new Email(email), cancellationToken);
         if (existingAdmin is not null)
         {
             throw new InvalidOperationException("Bu e-posta adresiyle kayıtlı yönetici bulunmakta");
@@ -25,8 +35,10 @@ internal sealed class AdminRepository : IAdminRepository
         return admin;
     }
 
-    public async Task<Admin?> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
+    public async Task ChangePasswordAsync(Guid id, string newPassword, CancellationToken cancellationToken = default)
     {
-        return await _context.Admins.Where(a => a.Email == new Email(email)).FirstOrDefaultAsync(cancellationToken);
+        var admin = await GetByIdAsync(id) ?? throw new InvalidOperationException("Id bilgisi hatalı");
+        admin.ChangePassword(newPassword);
+        _context.Admins.Update(admin);
     }
 }

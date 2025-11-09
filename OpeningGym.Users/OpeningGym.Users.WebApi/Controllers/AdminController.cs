@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OpeningGym.Users.Application.Features.Admins.ChangeAdminPassword;
 using OpeningGym.Users.Application.Features.Admins.CreateAdmin;
 
 namespace OpeningGym.Users.WebApi.Controllers;
@@ -14,8 +15,15 @@ public class AdminController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateAdminCommand request, CancellationToken cancellationToken)
+    {
+        await _mediator.Send(request, cancellationToken);
+        return Ok();
+    }
+
+    [HttpPatch("ChangePassword")]
+    public async Task<IActionResult> ChangePassword(ChangeAdminPasswordCommand request, CancellationToken cancellationToken)
     {
         await _mediator.Send(request, cancellationToken);
         return Ok();
